@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Presence.API.Data;
+using PiTech.API.Data;
 
-namespace Presence.API.Data.Migrations
+namespace PiTech.API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -178,7 +178,7 @@ namespace Presence.API.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Presence.API.Domain.Presenca", b =>
+            modelBuilder.Entity("PiTech.API.Domain.Presenca", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
@@ -194,7 +194,7 @@ namespace Presence.API.Data.Migrations
                     b.ToTable("Presencas");
                 });
 
-            modelBuilder.Entity("Presence.API.Domain.RefreshToken", b =>
+            modelBuilder.Entity("PiTech.API.Domain.RefreshToken", b =>
                 {
                     b.Property<string>("Token")
                         .ValueGeneratedOnAdd();
@@ -263,14 +263,14 @@ namespace Presence.API.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Presence.API.Domain.Presenca", b =>
+            modelBuilder.Entity("PiTech.API.Domain.Presenca", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("Presence.API.Domain.RefreshToken", b =>
+            modelBuilder.Entity("PiTech.API.Domain.RefreshToken", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Presence.API.Data.Migrations
+namespace PiTech.API.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

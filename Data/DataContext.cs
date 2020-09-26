@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Presence.API.Domain;
+using PiTech.API.Domain;
 
-namespace Presence.API.Data
+namespace PiTech.API.Data
 {
     /// <summary>
     /// 

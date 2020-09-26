@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Presence.API.Options.DatabaseConfig
+namespace PiTech.API.Options.DatabaseConfig
 {
     public enum DatabaseTypes
     {

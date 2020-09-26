@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Presence.API.Data;
+using PiTech.API.Data;
 
-namespace Presence.API.Data.Migrations
+namespace PiTech.API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20190922193559_AdicionadoPresencas")]
@@ -180,7 +180,7 @@ namespace Presence.API.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Presence.API.Domain.Presenca", b =>
+            modelBuilder.Entity("PiTech.API.Domain.Presenca", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();

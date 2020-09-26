@@ -1,33 +1,21 @@
-﻿using Presence.API.Extensions;
+﻿using PiTech.API.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Presence.API.Options.DatabaseConfig
+namespace PiTech.API.Options.DatabaseConfig
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class DataBaseConfigFactory
     {
         private DatabaseTypes _tipo;
         private string _connectionString;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="databaseConfig"></param>
         public DataBaseConfigFactory(DatabaseConfig databaseConfig)
         {
             this._tipo = databaseConfig.Server.ObterValorEnum<DatabaseTypes>();
             this._connectionString = databaseConfig.ConnectionString;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public IConnectionStrings ObterImplementacao()
         {
             switch (_tipo)

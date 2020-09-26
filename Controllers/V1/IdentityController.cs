@@ -1,37 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Presence.API.Contracts.V1;
-using Presence.API.Contracts.V1.Requests;
-using Presence.API.Contracts.V1.Responses;
-using Presence.API.Domain;
-using Presence.API.Services;
+using PiTech.API.Contracts.V1;
+using PiTech.API.Contracts.V1.Requests;
+using PiTech.API.Contracts.V1.Responses;
+using PiTech.API.Domain;
+using PiTech.API.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Presence.API.Controllers.V1
+namespace PiTech.API.Controllers.V1
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public class IdentityController : Controller
     {
         private readonly IIdentityService _identityService;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="identityService"></param>
         public IdentityController(IIdentityService identityService)
         {
             _identityService = identityService;            
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         [HttpPost(ApiRoutes.Identity.Register)]
         public async Task<IActionResult> Register([FromBody] UserRegistrationRequest request)
         {
@@ -60,11 +48,6 @@ namespace Presence.API.Controllers.V1
             });
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
         [HttpPost(ApiRoutes.Identity.Login)]
         public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
         {
@@ -84,7 +67,6 @@ namespace Presence.API.Controllers.V1
                 RefreshToken = authResponse.RefreshToken,
             });
         }
-
 
         [HttpPost(ApiRoutes.Identity.Refresh)]
         public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)

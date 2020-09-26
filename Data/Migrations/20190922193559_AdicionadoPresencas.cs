@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Presence.API.Data.Migrations
+namespace PiTech.API.Data.Migrations
 {
     public partial class AdicionadoPresencas : Migration
     {

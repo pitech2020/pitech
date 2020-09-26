@@ -6,24 +6,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Presence.API.Data;
-using Presence.API.Extensions;
-using Presence.API.Options;
-using Presence.API.Options.DatabaseConfig;
-using Presence.API.Services;
+using PiTech.API.Data;
+using PiTech.API.Extensions;
+using PiTech.API.Options;
+using PiTech.API.Options.DatabaseConfig;
+using PiTech.API.Services;
 
-namespace Presence.API.Installers
+namespace PiTech.API.Installers
 {
-    /// <summary>
-    /// 
-    /// </summary>
+
     public class DbInstaller : IInstaller
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="configuration"></param>
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             var databaseConfig = new DatabaseConfig();

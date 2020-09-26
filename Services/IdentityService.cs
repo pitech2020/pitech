@@ -8,15 +8,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Presence.API.Data;
-using Presence.API.Domain;
-using Presence.API.Options;
+using PiTech.API.Data;
+using PiTech.API.Domain;
+using PiTech.API.Options;
 
-namespace Presence.API.Services
+namespace PiTech.API.Services
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class IdentityService : IIdentityService
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -24,13 +21,6 @@ namespace Presence.API.Services
         private readonly TokenValidationParameters _tokenValidationParameters;
         private readonly DataContext _dataContext;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userManager"></param>
-        /// <param name="jwtSettings"></param>
-        /// <param name="tokenValidationParameters"></param>
-        /// <param name="dataContext"></param>
         public IdentityService(
             UserManager<IdentityUser> userManager,
             JwtSettings jwtSettings,
@@ -43,12 +33,6 @@ namespace Presence.API.Services
             _dataContext = dataContext;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="senha"></param>
-        /// <returns></returns>
         public async Task<AuthenticationResult> LoginAsync(string email, string senha)
         {
             var usuario = await _userManager.FindByEmailAsync(email);
@@ -74,12 +58,6 @@ namespace Presence.API.Services
             return await GerarResultadoDeAutenticacaoUsuarioAsync(usuario);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="token"></param>
-        /// <param name="refreshToken"></param>
-        /// <returns></returns>
         public async Task<AuthenticationResult> RefreshTokenAsync(string token, string refreshToken)
         {
             var tokenValidado = ObterPrincipalPeloToken(token);
@@ -188,12 +166,6 @@ namespace Presence.API.Services
                 && jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="email"></param>
-        /// <param name="senha"></param>
-        /// <returns></returns>
         public async Task<AuthenticationResult> RegistrarAsync(string email, string senha)
         {
             var usuarioExistente = await _userManager.FindByEmailAsync(email);
@@ -225,11 +197,6 @@ namespace Presence.API.Services
             return await GerarResultadoDeAutenticacaoUsuarioAsync(novoUsuario);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="usuario"></param>
-        /// <returns></returns>
         private async Task<AuthenticationResult> GerarResultadoDeAutenticacaoUsuarioAsync(IdentityUser usuario)
         {
             var tokenHandler = new JwtSecurityTokenHandler();

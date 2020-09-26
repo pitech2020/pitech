@@ -10,14 +10,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Presence.API.Data;
+using PiTech.API.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Presence.API.Options;
-using Presence.API.Installers;
+using PiTech.API.Options;
+using PiTech.API.Installers;
 using Microsoft.Extensions.Hosting;
 
-namespace Presence.API
+namespace PiTech.API
 {
     public class Startup
     {

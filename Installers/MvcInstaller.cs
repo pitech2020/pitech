@@ -9,22 +9,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Presence.API.Options;
-using Presence.API.Services;
+using PiTech.API.Options;
+using PiTech.API.Services;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace Presence.API.Installers
+namespace PiTech.API.Installers
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class MvcInstaller : IInstaller
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="services"></param>
-        /// <param name="configuration"></param>
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddMvc(
@@ -63,7 +55,7 @@ namespace Presence.API.Installers
 
             services.AddSwaggerGen(swagger =>
             {
-                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "Presence API", Version = "v1" });
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "PiTech API", Version = "v1" });
 
                 var security = new Dictionary<string, IEnumerable<string>>
                 {
@@ -90,7 +82,6 @@ namespace Presence.API.Installers
                         }, new List<string>()
                     }
                 });
-
             });
         }
     }
